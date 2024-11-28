@@ -9,9 +9,7 @@ import useSWR from "swr";
 // import { useEffect } from "react";
 
 export default function Home() {
-
-  const fetcher = (url:string) => fetch(url)
-  .then((res) => res.json());
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
   const { data, error, isLoading } = useSWR(
     "http://localhost:8000/blogs",
@@ -19,21 +17,14 @@ export default function Home() {
     {
       revalidateIfStale: false,
       revalidateOnFocus: false,
-      revalidateOnReconnect: false
+      revalidateOnReconnect: false,
     }
   );
 
   console.log(">>> check data", data);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const res = await fetch("http://localhost:8000/blogs");
-  //     const data = await res.json();
-  //     console.log(data);
-  //   }
-  //   fetchData()
-  // }, []);
-
+  if (!data) {
+    return <div>Loading...</div>;
+  }
   return (
     <div>
       <div>{data?.length}</div>
@@ -50,7 +41,7 @@ export default function Home() {
           <Link href={"/instagram"}>Instagram</Link>
         </li>
       </ul>
-      <AppTable />
+      <AppTable blogs={data} />
     </div>
   );
 }
