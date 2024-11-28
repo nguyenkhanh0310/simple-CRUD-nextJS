@@ -29,7 +29,7 @@ function UpdateModal(props: IProps) {
       setAuthor(blog.author);
       setContent(blog.content);
     }
-  }, [blog])
+  }, [blog]);
 
   const handleSubmit = () => {
     if(!title) {
@@ -69,6 +69,7 @@ function UpdateModal(props: IProps) {
     setTitle("");
     setAuthor("");
     setContent("");
+    setBlog(null);
     setShowModalUpdate(false);
   };
 
