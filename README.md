@@ -1,0 +1,1 @@
+* Metadata: bắt buộc dùng server components

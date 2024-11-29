@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import x from "@/styles/app.module.css";
 import y from "@/styles/mykhanh.module.css";
