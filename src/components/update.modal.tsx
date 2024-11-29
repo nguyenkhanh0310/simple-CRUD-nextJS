@@ -55,7 +55,7 @@ function UpdateModal(props: IProps) {
       .then((res) => res.json())
       .then((res) => {
         if(res) {
-          toast.warning("Update a blog succeed !");
+          toast.success("Update a blog succeed !");
           handleCloseModal();
           mutate("http://localhost:8000/blogs");
         }
